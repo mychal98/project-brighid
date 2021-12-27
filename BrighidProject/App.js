@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import {
+  View,
   StyleSheet
 } from 'react-native';
 import Home from './Home';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class App extends Component {
   render() {
     return (
-      <Home />
+      <LinearGradient
+        colors={['#FCA625', '#FFDF58']}
+        style={styles.full_container}
+        start={{x: 1.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+        locations={[0.7,1]}>
+
+      </LinearGradient>
     );
   }
 }
@@ -16,7 +24,6 @@ const styles = StyleSheet.create({
   full_container: {
     flex: 1,
     justifyContent: 'flex-start',
-    backgroundColor: '#FFFFFF',
   },
   hello: {
     fontSize: 36,
