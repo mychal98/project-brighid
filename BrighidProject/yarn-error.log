@@ -1,0 +1,73 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/Library/Apple/usr/bin:/Users/yasataka9868/opt/anaconda3/bin:/Users/yasataka9868/opt/anaconda3/condabin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/yasataka9868/Library/Caches/Yarn/v6/npm-@types-lodash-4.14.182-05301a4d5e62963227eaafe0ce04dd77c54ea5c2-integrity/node_modules/@types/lodash/.yarn-metadata.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "brighidproject",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "keywords": [
+      "react",
+      "expo",
+      "template",
+      "typescript",
+      "nativebase"
+    ],
+    "license": "MIT",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "^44.0.0",
+      "expo-status-bar": "~1.2.0",
+      "native-base": "3.4.0",
+      "react": "17.0.1",
+      "react-dom": "17.0.1",
+      "react-native": "0.64.3",
+      "react-native-safe-area-context": "3.3.2",
+      "react-native-svg": "12.1.1",
+      "react-native-web": "0.17.1"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9",
+      "@types/react": "~17.0.21",
+      "@types/react-native": "~0.64.12",
+      "typescript": "~4.3.5"
+    },
+    "bugs": {
+      "url": "https://github.com/GeekyAnts/nativebase-templates/issues"
+    },
+    "homepage": "https://github.com/GeekyAnts/nativebase-templates#readme",
+    "author": "Aditya Jamuar",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
