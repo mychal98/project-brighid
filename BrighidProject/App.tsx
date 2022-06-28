@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   Text,
   Box,
@@ -15,6 +15,10 @@ import {
   CloseIcon,
   ChevronUpIcon,
   ChevronDownIcon,
+  Popover,
+  FormControl,
+  Input,
+  TextArea,
 } from "native-base";
 
 interface AppState {
@@ -153,6 +157,7 @@ export default class App extends Component<{}, AppState> {
 }
 
 function Greetings() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Center>
       <Container bg="emerald.50" m={5} p={7}>
@@ -160,11 +165,56 @@ function Greetings() {
           <Heading color="emerald.500">
             Hello Bob!
           </Heading>
-          <Button size="lg" variant="outline" colorScheme="white">
-            <Heading size="sm" color="emerald.500">
-              Add Obsession Entry
-            </Heading>
-          </Button>
+          
+          <Box alignItems="center">
+            <Popover trigger={triggerProps => {
+              return (
+                <Button {...triggerProps} size="lg" variant="outline" colorScheme="white" onPress={() => setIsOpen(true)}>
+                  <Heading size="sm" color="emerald.500">
+                    Add Obsession Entry
+                  </Heading>
+                </Button>
+              );
+            }} isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
+              <Popover.Content width="56">
+                <Popover.Arrow />
+                <Popover.CloseButton onPress={() => setIsOpen(false)} />
+                {
+                  /* @ts-ignore */
+                }
+                <Popover.Header>Add Obsession Entry</Popover.Header>
+                <Popover.Body>
+                  <FormControl>
+                    <FormControl.Label _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium"
+                    }}>
+                      Obsession Name/Title
+                    </FormControl.Label>
+                    <Input rounded="sm" fontSize="xs" />
+                  </FormControl>
+                  <FormControl mt="3">
+                    <FormControl.Label _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium"
+                    }}>
+                      Obsession and Compulsion Description
+                    </FormControl.Label>
+                    <TextArea h={20} placeholder="What this obsession is about?
+                     What compulsions and rituals do you use to respond/cope?" w="100%" maxW="300" />
+                  </FormControl>
+                </Popover.Body>
+                <Popover.Footer>
+                  <Button.Group>
+                    <Button colorScheme="coolGray" variant="ghost" onPress={() => setIsOpen(false)}>
+                      Cancel
+                    </Button>
+                    <Button onPress={() => setIsOpen(false)}>Save</Button>
+                  </Button.Group>
+                </Popover.Footer>
+              </Popover.Content>
+            </Popover>
+          </Box>
         </HStack>
         <Text color="emerald.500" mt="3" fontWeight="medium">
           Try ranking your obsessions and counting the number of times they've occurred today!
