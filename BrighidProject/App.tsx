@@ -158,6 +158,26 @@ export default class App extends Component<{}, AppState> {
 
 function Greetings() {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+
+  const handleTitle = (text: React.SetStateAction<string>) => {
+    setTitle(text);
+  };
+
+  const handleDesc = (text: React.SetStateAction<string>) => {
+    setDesc(text);
+  };
+
+  const handleClear = () => {
+    setTitle("");
+    setDesc("");
+  }
+
+  const handleSave = () => {
+    setIsOpen(false);
+  }
+
   return (
     <Center>
       <Container bg="emerald.50" m={5} p={7}>
@@ -191,7 +211,7 @@ function Greetings() {
                     }}>
                       Obsession Name/Title
                     </FormControl.Label>
-                    <Input rounded="sm" fontSize="xs" />
+                    <Input value={title} rounded="sm" fontSize="xs" onChangeText={handleTitle}/>
                   </FormControl>
                   <FormControl mt="3">
                     <FormControl.Label _text={{
@@ -200,16 +220,16 @@ function Greetings() {
                     }}>
                       Obsession and Compulsion Description
                     </FormControl.Label>
-                    <TextArea h={20} placeholder="What this obsession is about?
-                     What compulsions and rituals do you use to respond/cope?" w="100%" maxW="300" />
+                    <TextArea value={desc} h={20} placeholder="What this obsession is about?
+                     What compulsions and rituals do you use to respond/cope?" w="100%" maxW="300" onChangeText={handleDesc}/>
                   </FormControl>
                 </Popover.Body>
                 <Popover.Footer>
                   <Button.Group>
-                    <Button colorScheme="coolGray" variant="ghost" onPress={() => setIsOpen(false)}>
-                      Cancel
+                    <Button colorScheme="coolGray" variant="ghost" onPress={handleClear}>
+                      Clear
                     </Button>
-                    <Button onPress={() => setIsOpen(false)}>Save</Button>
+                    <Button onPress={handleSave}>Save</Button>
                   </Button.Group>
                 </Popover.Footer>
               </Popover.Content>
