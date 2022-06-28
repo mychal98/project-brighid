@@ -39,22 +39,22 @@ export default class App extends Component<{}, AppState> {
       // obs_ranking : title, description, number of occurrences today
       obs_arr: []
     }
-    this.state.obs_arr.push({title: "Obsession 1", desc: "This obsession involves thinking about....", occur_cnt: 18});
-    this.state.obs_arr.push({title: "Obsession 2", desc: "This obsession involves thinking about....", occur_cnt: 5});
-    this.state.obs_arr.push({title: "Obsession 3", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 4", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 5", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 6", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 7", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 8", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 9", desc: "This obsession involves thinking about....", occur_cnt: 1});
-    this.state.obs_arr.push({title: "Obsession 10", desc: "This obsession involves thinking about....", occur_cnt: 1});
+    this.state.obs_arr.push({ title: "Obsession 1", desc: "This obsession involves thinking about....", occur_cnt: 18 });
+    this.state.obs_arr.push({ title: "Obsession 2", desc: "This obsession involves thinking about....", occur_cnt: 5 });
+    this.state.obs_arr.push({ title: "Obsession 3", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 4", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 5", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 6", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 7", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 8", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 9", desc: "This obsession involves thinking about....", occur_cnt: 1 });
+    this.state.obs_arr.push({ title: "Obsession 10", desc: "This obsession involves thinking about....", occur_cnt: 1 });
   }
 
   swapEntries = (index: number, up: boolean): any => {
     let otherIdx: number = up ? index - 1 : index + 1;
-    let otherEntry : obs_entry = this.state.obs_arr[otherIdx];
-    let new_obs_arr : obs_entry[] = this.state.obs_arr;
+    let otherEntry: obs_entry = this.state.obs_arr[otherIdx];
+    let new_obs_arr: obs_entry[] = this.state.obs_arr;
 
     new_obs_arr[otherIdx] = new_obs_arr[index];
     new_obs_arr[index] = otherEntry;
@@ -82,8 +82,8 @@ export default class App extends Component<{}, AppState> {
     return result;
   }
 
-  updateCount = (index : number, increase: boolean): any => {
-    let new_obs_arr : obs_entry[] = this.state.obs_arr;
+  updateCount = (index: number, increase: boolean): any => {
+    let new_obs_arr: obs_entry[] = this.state.obs_arr;
     let target_entry_data: obs_entry = new_obs_arr[index];
     target_entry_data.occur_cnt = increase ? target_entry_data.occur_cnt + 1 : target_entry_data.occur_cnt - 1;
     target_entry_data.occur_cnt = target_entry_data.occur_cnt < 0 ? 0 : target_entry_data.occur_cnt;
@@ -92,8 +92,8 @@ export default class App extends Component<{}, AppState> {
     return new_obs_arr;
   }
 
-  removeEntry = (index : number): any => {
-    let new_obs_arr : obs_entry[] = this.state.obs_arr;
+  removeEntry = (index: number): any => {
+    let new_obs_arr: obs_entry[] = this.state.obs_arr;
     new_obs_arr.splice(index, 1);
     return new_obs_arr;
   }
@@ -111,7 +111,7 @@ export default class App extends Component<{}, AppState> {
     for (let i = 0; i < this.state.obs_arr.length; i++) {
       let entry_data = this.state.obs_arr[i];
       entries.push(
-        <Container key={i} alignItems="center" bg={"emerald." + (900 - (i*100) >= 600 ? 900 - (i*100) : 600)} rounded="md" shadow={3} p={6}>
+        <Container key={i} alignItems="center" bg={"emerald." + (900 - (i * 100) >= 600 ? 900 - (i * 100) : 600)} rounded="md" shadow={3} p={6}>
           <HStack space={5}>
             <VStack space={3} alignItems="start">
               <Heading size="md">
@@ -165,7 +165,7 @@ function Greetings() {
           <Heading color="emerald.500">
             Hello Bob!
           </Heading>
-          
+
           <Box alignItems="center">
             <Popover trigger={triggerProps => {
               return (
