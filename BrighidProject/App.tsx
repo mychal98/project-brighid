@@ -45,16 +45,6 @@ export default class App extends Component<{}, AppState> {
       add_title: "",
       add_desc: "",
     }
-    this.state.obs_arr.push({ title: "Obsession 1", desc: "This obsession involves thinking about....", occur_cnt: 18 });
-    this.state.obs_arr.push({ title: "Obsession 2", desc: "This obsession involves thinking about....", occur_cnt: 5 });
-    this.state.obs_arr.push({ title: "Obsession 3", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 4", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 5", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 6", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 7", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 8", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 9", desc: "This obsession involves thinking about....", occur_cnt: 1 });
-    this.state.obs_arr.push({ title: "Obsession 10", desc: "This obsession involves thinking about....", occur_cnt: 1 });
   }
 
   swapEntries = (index: number, up: boolean): any => {
@@ -117,23 +107,23 @@ export default class App extends Component<{}, AppState> {
         add_title: text.toString()
       });
     };
-  
+
     const handleDesc = (text: React.SetStateAction<string>) => {
       this.setState({
         add_desc: text.toString()
       });
     };
-  
+
     const handleClear = () => {
       this.setState({
         add_title: "",
         add_desc: ""
       });
     }
-  
+
     const handleSave = () => {
       let obs_entries: obs_entry[] = this.state.obs_arr;
-      obs_entries.push({title: this.state.add_title, desc: this.state.add_desc, occur_cnt: 0});
+      obs_entries.push({ title: this.state.add_title, desc: this.state.add_desc, occur_cnt: 0 });
       this.setState({
         add_title: "",
         add_desc: "",
@@ -182,7 +172,7 @@ export default class App extends Component<{}, AppState> {
 
     return (
       <NativeBaseProvider theme={theme}>
-        
+
         <Center>
           <Container bg="emerald.50" m={5} p={7}>
             <HStack space={200}>
