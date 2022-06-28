@@ -82,6 +82,7 @@ export default class App extends Component<{}, AppState> {
     let new_obs_arr : obs_entry[] = this.state.obs_arr;
     let target_entry_data: obs_entry = new_obs_arr[index];
     target_entry_data.occur_cnt = increase ? target_entry_data.occur_cnt + 1 : target_entry_data.occur_cnt - 1;
+    target_entry_data.occur_cnt = target_entry_data.occur_cnt < 0 ? 0 : target_entry_data.occur_cnt;
     new_obs_arr[index] = target_entry_data;
 
     return new_obs_arr;
